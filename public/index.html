@@ -66,7 +66,7 @@
         }
 
         .logo img {
-            height: 45px;
+            height: 50px;
             width: auto;
         }
 
@@ -273,6 +273,11 @@
             overflow: hidden;
             box-shadow: 0 20px 60px rgba(30, 212, 212, 0.15);
             transition: transform 0.3s;
+            background: rgba(255, 255, 255, 0.05);
+            min-height: 300px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         .showcase-image:hover {
@@ -281,7 +286,8 @@
 
         .showcase-image img {
             width: 100%;
-            height: auto;
+            height: 100%;
+            object-fit: cover;
             display: block;
         }
 
@@ -619,18 +625,7 @@
     <header>
         <nav>
             <div class="logo">
-                <svg width="45" height="45" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg" style="flex-shrink: 0;">
-                    <!-- Catena Logo SVG -->
-                    <defs>
-                        <linearGradient id="logoGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                            <stop offset="0%" style="stop-color:#1ED4D4;stop-opacity:1" />
-                            <stop offset="100%" style="stop-color:#2B9B9C;stop-opacity:1" />
-                        </linearGradient>
-                    </defs>
-                    <!-- Chain link design -->
-                    <path d="M 60 80 Q 80 60 100 80 Q 80 100 60 80 M 100 80 Q 120 60 140 80 Q 120 100 100 80" fill="none" stroke="url(#logoGrad)" stroke-width="12" stroke-linecap="round"/>
-                    <circle cx="100" cy="100" r="8" fill="url(#logoGrad)"/>
-                </svg>
+                <img src="/images/catena-logo.svg" alt="Catena Logo" onerror="this.src='/images/catena-logo-light.png'">
                 <span>LANGUAGE PARTNERS</span>
             </div>
             <ul class="nav-links">
@@ -674,10 +669,10 @@
             <h2 style="text-align: center; font-size: 2rem; margin-bottom: 2rem;">Professional Medical Interpretation</h2>
             <div class="showcase-grid">
                 <div class="showcase-image">
-                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 400'%3E%3Crect width='600' height='400' fill='%231e293b'/%3E%3Ctext x='300' y='200' font-family='Arial' font-size='32' fill='%231ED4D4' text-anchor='middle' dominant-baseline='middle'%3EHealthcare Interpretation%3C/text%3E%3C/svg%3E" alt="Healthcare Interpretation Services">
+                    <img src="/images/medical-interpretation.svg" alt="Global Medical Interpretation with Languages">
                 </div>
                 <div class="showcase-image">
-                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 400'%3E%3Crect width='600' height='400' fill='%231e293b'/%3E%3Ctext x='300' y='200' font-family='Arial' font-size='32' fill='%231ED4D4' text-anchor='middle' dominant-baseline='middle'%3EMultilingual Support%3C/text%3E%3C/svg%3E" alt="Multilingual Support">
+                    <img src="/images/healthcare-providers.svg" alt="Healthcare Providers and Interpreters">
                 </div>
             </div>
         </div>
@@ -896,6 +891,14 @@
 
         document.querySelectorAll('.feature-card, .step, .pricing-card').forEach(el => {
             observer.observe(el);
+        });
+
+        // Handle CTA buttons
+        document.querySelectorAll('.btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const text = this.textContent.trim();
+                alert('Coming soon: ' + text + '\n\nThis feature will be enabled with backend integration.');
+            });
         });
     </script>
 </body>
